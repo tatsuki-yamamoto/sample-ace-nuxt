@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -11,7 +11,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:nuxt/recommended',
     '@nuxtjs/eslint-config-typescript',
-    'prettier'
+    'prettier',
   ],
   plugins: [],
   rules: {
@@ -29,7 +29,7 @@ module.exports = {
     'vue/no-v-model-argument': 0,
     'vue/no-v-html': 0,
     'vue/multi-word-component-names': 0,
-    'vue/no-useless-template-attributes': 0
+    'vue/no-useless-template-attributes': 0,
     // nuxt settings
-  }
-}
+  },
+};

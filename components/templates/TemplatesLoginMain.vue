@@ -14,7 +14,7 @@ const loginForm = reactive({
 // const { signIn } = useAuth()
 const loading = ref(false);
 const formValid = ref(false);
-const login = async () => {
+const login = () => {
   if (!formValid.value) return;
   loading.value = true;
   // await signIn(email.value, password.value)
@@ -53,7 +53,7 @@ const login = async () => {
           persistent-placeholder
           :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
           class="mt-4"
-          @click:appendInner="toggleShowPassword()"
+          @click:append-inner="toggleShowPassword()"
         />
         <v-btn type="submit" block color="primary" flat size="x-large" :loading="loading" class="mt-4">
           ログイン

@@ -47,7 +47,7 @@ const filteredList = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <template v-for="(item, index) in filteredList">
+        <template v-for="(item, index) in filteredList" :key="index">
           <tr>
             <td width="20%">{{ index + 1 }}</td>
             <td width="40%">{{ item.title }}</td>

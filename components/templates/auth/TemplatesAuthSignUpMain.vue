@@ -16,7 +16,7 @@ const signUpForm = reactive({
 const loading = ref(false);
 // const { signUp } = useAuth()
 const formValid = ref(false);
-const createAccount = async () => {
+const createAccount = () => {
   if (!formValid.value) return;
   loading.value = true;
   // await signUp(signUpForm)
@@ -71,7 +71,7 @@ const createAccount = async () => {
           :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
           persistent-placeholder
           class="mt-4"
-          @click:appendInner="toggleShowPassword()"
+          @click:append-inner="toggleShowPassword()"
         />
         <v-btn type="submit" block color="primary" flat size="x-large" :loading="loading" class="mt-4"
           >アカウント新規登録</v-btn

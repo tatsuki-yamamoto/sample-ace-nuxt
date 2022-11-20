@@ -40,8 +40,8 @@ const fullscreenByMobile = computed(() => {
     :transition="transition"
     :fullscreen="fullscreenByMobile"
   >
-    <template v-slot:activator="{ props }">
-      <v-btn color="primary" flat v-bind="props">
+    <template #activator="{ props: vDialogProps }">
+      <v-btn color="primary" flat v-bind="vDialogProps">
         <v-icon v-if="btnIcon" start :icon="btnIcon"></v-icon>
         {{ btnText }}
       </v-btn>

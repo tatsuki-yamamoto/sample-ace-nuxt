@@ -29,7 +29,7 @@ const items = [
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn flat v-bind="props">山田 太郎</v-btn>
         </template>
         <v-list>
