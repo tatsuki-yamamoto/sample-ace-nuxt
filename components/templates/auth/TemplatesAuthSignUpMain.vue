@@ -31,7 +31,7 @@ const createAccount = async () => {
   const { error } = await signUp({ ...signUpForm });
   if (!error.value) {
     alert('アカウントを新規登録しました。\nメールアドレス宛に確認メールが送信されます。');
-    navigateTo('/');
+    await navigateTo('/login');
   }
   loading.value = false;
 };
