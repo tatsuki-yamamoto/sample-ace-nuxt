@@ -69,7 +69,7 @@ export const useCustomFetch = <T>(url: string, options?: FetchOptions) => {
           navigateTo('/login');
           return;
         }
-        const messages: string[] = response._data.errors?.full_messages ?? [];
+        const messages: string[] = response._data.errors?.fullMessages ?? [];
         if (messages.length > 0) return alert(messages[0]);
         const errors: string[] = response._data.errors ?? [];
         if (errors.length > 0) return alert(errors[0]);
