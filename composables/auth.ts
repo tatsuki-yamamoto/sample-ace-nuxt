@@ -10,6 +10,7 @@ import {
   RequestPutAuth,
   ResponsePutAuth,
   RequestPutAuthForPassword,
+  RequestPostAuthConfirmation,
 } from '~~/types/auth';
 
 export const useAuth = () => {
@@ -46,6 +47,14 @@ export const useAuth = () => {
   const signOut = () => {
     return useCustomFetch('/api/v1/auth/sign_out', {
       method: 'DELETE',
+    });
+  };
+
+  // サインイン
+  const postAuthConfirmation = (requestPostAuthConfirmation: RequestPostAuthConfirmation) => {
+    return useCustomFetch('/api/v1/auth/confirmation', {
+      method: 'POST',
+      body: requestPostAuthConfirmation,
     });
   };
 
@@ -114,6 +123,7 @@ export const useAuth = () => {
     signUp,
     signIn,
     signOut,
+    postAuthConfirmation,
     postAuthPassword,
     putAuthPassword,
     getValidateToken,

@@ -102,6 +102,9 @@ const createAccount = async () => {
           アカウント新規登録
         </v-btn>
       </v-form>
+      <v-btn block color="primary" variant="plain" to="/auth/confirmation-email-resend" class="mt-4">
+        確認メールが届かない場合はこちら
+      </v-btn>
     </v-card>
   </atoms-layout-container>
 </template>

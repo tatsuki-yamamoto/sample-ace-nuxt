@@ -31,6 +31,11 @@ export type RequestPostAuthSignIn = {
   password: string;
 };
 
+// 確認メール再送信リクエスト
+export type RequestPostAuthConfirmation = {
+  email: string;
+};
+
 // パスワード再発行リクエスト
 export type RequestPostAuthPassword = {
   email: string;
