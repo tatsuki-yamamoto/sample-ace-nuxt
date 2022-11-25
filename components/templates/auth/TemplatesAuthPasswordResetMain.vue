@@ -40,7 +40,7 @@ const resetPassword = async () => {
 <template>
   <atoms-layout-container>
     <v-card max-width="500" flat class="mx-auto pa-6 mt-6">
-      <v-form v-model="formValid" @submit.prevent>
+      <v-form v-model="formValid" @submit.prevent="resetPassword()">
         <v-text-field
           v-model="resetPasswordForm.password"
           :type="showPassword ? 'password' : 'text'"
@@ -65,7 +65,7 @@ const resetPassword = async () => {
           class="mt-4"
           @click:append-inner="toggleShowPasswordConfirmation()"
         />
-        <v-btn block color="primary" flat size="x-large" :loading="loading" class="mt-6" @click="resetPassword()">
+        <v-btn type="submit" block color="primary" flat size="x-large" :loading="loading" class="mt-6">
           パスワードを再設定する
         </v-btn>
       </v-form>
