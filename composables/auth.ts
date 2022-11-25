@@ -9,6 +9,7 @@ import {
   AuthUser,
   RequestPutAuth,
   ResponsePutAuth,
+  RequestPutAuthForPassword,
 } from '~~/types/auth';
 
 export const useAuth = () => {
@@ -77,6 +78,14 @@ export const useAuth = () => {
     });
   };
 
+  // ユーザー情報更新
+  const putAuthForPassword = (requestPutAuthForPassword: RequestPutAuthForPassword) => {
+    return useCustomFetch<ResponsePutAuth>('/api/v1/auth', {
+      method: 'PUT',
+      body: requestPutAuthForPassword,
+    });
+  };
+
   // 認証情報をローカルストレージに設定
   const upsertAuthData = (authInfo: AuthInfo) => {
     localStorage.setItem('access-token', authInfo['access-token'] ?? '');
@@ -109,6 +118,7 @@ export const useAuth = () => {
     putAuthPassword,
     getValidateToken,
     putAuth,
+    putAuthForPassword,
     upsertAuthData,
     findAuthInfo,
     deleteAuthInfo,

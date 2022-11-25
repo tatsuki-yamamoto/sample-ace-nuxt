@@ -56,6 +56,13 @@ export type RequestPutAuth = {
   firstName: string;
 };
 
+// ユーザー更新リクエスト（パスワード用）
+export type RequestPutAuthForPassword = {
+  currentPassword: string;
+  password: string;
+  passwordConfirmation: string;
+};
+
 // ユーザー更新レスポンス
 export type ResponsePutAuth = {
   success: boolean;
