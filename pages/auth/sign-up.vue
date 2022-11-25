@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 useHead({ title: 'サインアップ' });
-definePageMeta({ layout: 'public' });
 </script>
 
 <template>

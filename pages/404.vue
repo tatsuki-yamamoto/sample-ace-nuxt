@@ -1,6 +1,5 @@
 <script setup lang="ts">
 useHead({ title: 'お探しのページが見つかりませんでした' });
-definePageMeta({ layout: 'public' });
 
 const error = useError();
 const toTopPage = () => {

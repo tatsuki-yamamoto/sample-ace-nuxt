@@ -1,6 +1,5 @@
 <script setup lang="ts">
 useHead({ title: 'ページが表示できませんでした' });
-definePageMeta({ layout: 'public' });
 
 const myError = useError();
 const backPage = () => {
@@ -16,7 +15,7 @@ const backPage = () => {
     <div class="card bg-neutral mt-9 mb-12 p-4">
       <div class="grid grid-cols-2 mb-6 gap-4">
         <p class="font-bold text-right">メッセージ</p>
-        <p class="text-left">{{ myError.message }}</p>
+        <p class="text-left">{{ myError?.message }}</p>
       </div>
     </div>
     <button class="btn" @click="backPage()">前のページへ戻る</button>

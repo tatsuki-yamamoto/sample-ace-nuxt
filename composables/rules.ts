@@ -7,5 +7,8 @@ export const useFormRules = () => {
       return pattern.test(value) || 'メールアドレスの形式ではありません';
     },
     rulePassLen: (v: string) => (!!v && v.length >= 6) || 'パスワードは6文字以上である必要があります',
+    rulePassConfirm: (value: any, password: any) => {
+      return value === password || 'パスワードが一致しません';
+    },
   };
 };

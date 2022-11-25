@@ -1,8 +1,8 @@
 <script setup>
-useHead({ title: 'Fetch Data' });
+useHead({ title: 'アカウント編集' });
 definePageMeta({ layout: 'auth', middleware: ['auth'] });
 </script>
 
 <template>
-  <templates-sample-fetch-data-main />
+  <templates-account-edit-main></templates-account-edit-main>
 </template>

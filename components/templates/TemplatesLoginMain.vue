@@ -11,23 +11,18 @@ const loginForm = reactive({
   email: '',
   password: '',
 });
-// const { signIn } = useAuth()
+const { signIn } = useAuth();
 const loading = ref(false);
 const formValid = ref(false);
-const login = () => {
+const login = async () => {
+  console.log(formValid.value);
   if (!formValid.value) return;
   loading.value = true;
-  // await signIn(email.value, password.value)
-  //   .then(async () => {
-  //     return await navigateTo('/');
-  //   })
-  //   .catch(() => {
-  //     alert('ログイン認証に失敗しました。');
-  //   });
-  setTimeout(() => {
-    navigateTo('/');
-    loading.value = false;
-  }, 2000);
+  const { error } = await signIn({ ...loginForm });
+  if (!error.value) {
+    await navigateTo('/');
+  }
+  loading.value = false;
 };
 </script>
 <template>
@@ -37,7 +32,7 @@ const login = () => {
         <v-text-field
           v-model="loginForm.email"
           type="email"
-          :rules="[ruleRequired, ruleEmail]"
+          :rules="[ruleRequired]"
           name="email"
           :prepend-icon="mdiEmail"
           label="メールアドレス"
@@ -47,11 +42,12 @@ const login = () => {
           v-model="loginForm.password"
           :type="showPassword ? 'password' : 'text'"
           name="password"
-          :rules="[ruleRequired, rulePassLen]"
+          :rules="[ruleRequired]"
           :prepend-icon="mdiLock"
           label="パスワード"
           persistent-placeholder
           :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
+          autocomplete="off"
           class="mt-4"
           @click:append-inner="toggleShowPassword()"
         />
@@ -60,7 +56,9 @@ const login = () => {
         </v-btn>
       </v-form>
       <v-btn block color="primary" variant="plain" to="/auth/sign-up" class="mt-4">新規登録</v-btn>
-      <v-btn block color="primary" variant="plain" to="/auth/new-password" class="mt-2">パスワードを忘れた場合</v-btn>
+      <v-btn block color="primary" variant="plain" to="/auth/password-reissue" class="mt-2">
+        パスワードを忘れた場合
+      </v-btn>
     </v-card>
   </atoms-layout-container>
 </template>

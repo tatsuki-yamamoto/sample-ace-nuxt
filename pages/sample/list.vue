@@ -1,5 +1,6 @@
 <script setup>
 useHead({ title: 'List' });
+definePageMeta({ layout: 'auth', middleware: ['auth'] });
 </script>
 
 <template>
