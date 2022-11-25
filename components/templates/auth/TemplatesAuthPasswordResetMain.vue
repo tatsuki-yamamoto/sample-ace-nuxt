@@ -55,11 +55,11 @@ const resetPassword = async () => {
         />
         <v-text-field
           v-model="resetPasswordForm.passwordConfirmation"
-          :type="showPassword ? 'password' : 'text'"
+          :type="showPasswordConfirmation ? 'password' : 'text'"
           name="passwordConfirmation"
           :rules="[ruleRequired, rulePassLen, (v) => rulePassConfirm(v, resetPasswordForm.password)]"
           label="パスワード(確認用)"
-          :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
+          :append-inner-icon="showPasswordConfirmation ? mdiEye : mdiEyeOff"
           persistent-placeholder
           autocomplete="off"
           class="mt-4"

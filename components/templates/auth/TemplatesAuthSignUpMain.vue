@@ -30,7 +30,7 @@ const createAccount = async () => {
   loading.value = true;
   const { error } = await signUp({ ...signUpForm });
   if (!error.value) {
-    alert('アカウントを新規登録しました。');
+    alert('アカウントを新規登録しました。\nメールアドレス宛に確認メールが送信されます。');
     navigateTo('/');
   }
   loading.value = false;
@@ -83,11 +83,11 @@ const createAccount = async () => {
         />
         <v-text-field
           v-model="signUpForm.passwordConfirmation"
-          :type="showPassword ? 'password' : 'text'"
+          :type="showPasswordConfirmation ? 'password' : 'text'"
           name="passwordConfirmation"
           :rules="[ruleRequired, rulePassLen, (v) => rulePassConfirm(v, signUpForm.password)]"
           label="パスワード(確認用)"
-          :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
+          :append-inner-icon="showPasswordConfirmation ? mdiEye : mdiEyeOff"
           persistent-placeholder
           autocomplete="off"
           class="mt-4"
